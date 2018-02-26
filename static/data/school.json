@@ -1,0 +1,26 @@
+[
+	{
+		"SNO":"SNO1001",
+		"schoolName":"xx中学"
+	},
+	{
+		"SNO":"SNO1002",
+		"schoolName":"xx中学2"
+	},
+	{
+		"SNO":"SNO1003",
+		"schoolName":"xx中学3"
+	},
+	{
+		"SNO":"SNO1004",
+		"schoolName":"xx中学4"
+	},
+	{
+		"SNO":"SNO1005",
+		"schoolName":"xx中学5"
+	},
+	{
+		"SNO":"SNO1006",
+		"schoolName":"xx中学6"
+	}
+]

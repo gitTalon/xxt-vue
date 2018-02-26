@@ -1,0 +1,56 @@
+
+
+1.在.vue文件<style></style>内写入css 报错 或引入外部css 报错
+	an:
+  	a.安装相应的loader
+  	cnpm install 
+  			stylus-loader
+  			style-loader
+  			css-loader
+  			less less-loader
+  			sass-loader
+  			--save-dev
+ 	
+ 		b. webpack.base.conf.js 修改配置
+ 		
+ 		
+2.映入外部样式
+  @import '../../../static/css/talon_3g.css';
+  
+ 报错：a.样式中有图片路径，如背景图
+ 
+
+
+
+
+vue2单页面如何设置网页title--推荐使用vue-wechat-title插件
+1.下载安装插件依赖
+cnpm install vue-wechat-title --save
+
+2.在main.js中引入插件
+
+import VueWechatTitle from 'vue-wechat-title'
+Vue.use(VueWechatTitle)
+
+3.在路由文件 index.js中给每个路由添加title
+
+routes: [{
+ path: '/',
+ name: 'index',
+ component: index,
+ meta:{
+   title:'首页' // 标题设置在这里
+ }
+},{
+ path:'/detail',
+ name:'detail',
+ component:detail,
+ meta:{
+   title:'详情页' // 标题设置在这里
+ }
+}]
+
+4.在app.vue中修改router-view组件
+<router-view v-wechat-title='$route.meta.title'></router-view>
+
+5.重启试试，可以了

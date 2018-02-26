@@ -1,0 +1,419 @@
+@charset "UTF-8";
+/**
+ * EC v0.1
+ * https://github.com/mistory/EC
+ * License: MIT
+ */
+@media screen and (max-width:320px){html{font-size:2pc}}
+@media screen and (min-width:320px){html{font-size:2pc}}
+@media screen and (min-width:360px){html{font-size:36px}}
+@media screen and (min-width:384px){html{font-size:2.4pc}}
+@media screen and (min-width:375px){html{font-size:37.5px}}
+@media screen and (min-width:414px){html{font-size:41.4px}}
+
+/*base*/
+article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0;}
+body{font-size:16px;font-family:微软雅黑;-webkit-user-select:none;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4,h5,h6{font-weight:400;font-size:100%;}
+address,cite,dfn,em,i,var{font-weight:400;font-style:normal;}
+li{list-style-type:none;}
+img{border:0; float:left;}
+del{text-decoration:line-through;}
+button,input,select,textarea{font-size:100%;}
+button{border:0;background:0 0;-webkit-appearance:none;border-radius: 5px}
+a{color:#323232;text-decoration:none;-webkit-touch-callout:none;}
+table{border-collapse:collapse;border-spacing:0;}
+:focus{outline:0;}
+.cf:after{clear:both;display:block;visibility:hidden;height:0;content:'.';line-height:0;}
+.cf{*zoom:1}
+
+/*font-size*/
+.f12{
+  font-size: 0.375rem
+}
+.f14{
+  font-size: 0.4375rem
+}
+.f16{
+  font-size: 0.5rem
+}
+.f18{
+  font-size: 0.5625rem
+}
+.f20{
+  font-size: 0.625rem
+}
+.f22{
+  font-size: 0.6875rem
+}
+
+/*border*/
+.e-border{ 
+  position: relative;
+}
+
+.e-bt{
+  
+}
+.e-br{
+}
+.e-bb{
+  border-bottom: 1px solid #e7e7e7
+}
+.e-bl{
+  border-left: 1px solid #e7e7e7
+}
+
+/*空间*/
+.e-p{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (max-width:320px){
+  .e-p{
+    padding-left:10px;
+    padding-right:10px
+  }
+}
+
+/*文字省略*/
+.e-ellipsis,.e-ellipsis-2{ /* 单行 */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.e-ellipsis-2{ /* 两行 */
+  -webkit-line-clamp: 2;
+}
+
+/*布局*/
+/*父元素*/
+.e-flex,.e-menu{ 
+  display: -webkit-box; 
+  width: 100%; 
+  -webkit-box-sizing: border-box; 
+  
+}
+.e-menu{
+	padding:6px 0;}
+/* 子元素对齐方式 */
+.e-flex-pack-start{ /* 水平居左 */
+  -webkit-box-pack:start;
+}
+.e-flex-pack-center{ /* 水平居中 */
+  -webkit-box-pack:center;
+}
+.e-flex-pack-end{ /* 水平居右 */
+  -webkit-box-pack:end;
+}
+.e-flex-align-start{ /* 垂直居上 */
+  -webkit-box-align:start;
+}
+.e-flex-align-center{ /* 垂直居中 */
+  -webkit-box-align:center;
+}
+.e-flex-align-end{ /* 垂直居下 */
+  -webkit-box-align:end;
+}
+/* 子元素 */
+.e-flex-1{ 
+  -webkit-box-flex: 1;
+}
+.e-flex-2{
+  -webkit-box-flex: 2;
+}
+.e-flex-3{
+  -webkit-box-flex: 3;
+}
+.e-flex-4{
+  -webkit-box-flex: 4;
+}
+.e-flex-5{
+  -webkit-box-flex: 5;
+}
+
+/*grid*/
+.e-grid{
+  overflow: hidden;
+/*   padding-left: 15px;
+padding-bottom: 10px;
+padding-right: 5px */
+}
+/* @media (max-width:320px){
+  .e-grid{
+    padding-left:10px;
+    padding-right:0
+  }
+} */
+.e-grid-1-3,.e-grid-2-3,.e-grid-1-2,.e-grid-1-4{
+  -webkit-box-sizing: border-box; 
+/*   padding-right: 10px;  */
+  display: inline-block;
+  float: left;
+}
+.e-grid-1-3{
+  width: 33.3%;
+    
+}
+.e-grid-2-3{
+  width: 66.66%;
+}
+.e-grid-1-2{
+  width: 50%;
+}
+.e-grid-1-4{
+  width: 25%;
+}
+
+.foot {
+  border-top: 1px solid #e7e7e7;
+  background: rgba(255,255,255,0.92);
+  height: 60px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.e-menu {
+  display: -webkit-box;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+}
+
+.e-menu li{
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+  width: 100%;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+}
+
+/*菜单*/
+.e-menu-v,.e-flex-v{ 
+  -webkit-box-orient: vertical; /* 竖排菜单 */
+}
+.e-menu-fixed{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0
+}
+.e-menu li,.e-menu-v li{
+  display: -webkit-box;
+  -webkit-box-flex: 1; 
+  width: 100%; 
+  text-align: center; 
+  -webkit-box-orient: vertical; /* 子元素竖排 */
+  -webkit-box-pack: center; /* 水平居中 */
+  -webkit-box-align: center; /*垂直居中*/
+}
+
+/*两端对齐*/
+.e-justify{
+  text-align: justify;
+  font-size: 0; /* 清除空格*/
+  -webkit-box-sizing: border-box;
+}
+.e-justify li{
+  text-align: center;
+  display: inline-block;
+}
+.e-justify p{
+  font-size: 16px
+}
+.e-justify:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+/*form*/
+/*input:not([type='file']){*/
+  /*padding: .3em .6em;*/
+  /*display: inline-block;*/
+  /*border: 1px solid rgba(247, 247, 247, 0.94);*/
+/*/!*   box-shadow: inset 0 1px 3px #ddd; *!/*/
+  /*vertical-align: middle;*/
+  /*-webkit-box-sizing: border-box;*/
+  /*border-radius: 4px;*/
+/*}*/
+input:focus{
+  outline: 0;
+  border-color: #129FEA;
+}
+
+/*button*/
+.e-btn{ 
+  height: 30px; 
+  padding: 0 10px; 
+  line-height: 30px; 
+  font-size: 15px; 
+  display: inline-block; 
+  border: 1px solid #d7d7d7;
+  -webkit-box-sizing: border-box;
+  border-radius: 3px;
+  background: #7fcc7e;
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#7fcc7e),to(#7fcc7e));
+  text-align: center;
+  color: #fff
+}
+.e-btn-lg{
+  width: 100%;
+  height: 1.185rem;
+  line-height: 1.185rem;
+  border-radius: 5px;
+}
+
+/*btn-group*/
+.e-btn-group{
+  display: -webkit-box;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-align: center;
+}
+.e-btn-group .e-btn{
+  -webkit-box-flex: 1;
+  display: block;
+  margin-right: 15px;
+}
+.e-btn-group .e-btn:first-child{ 
+  margin-left: 15px
+}
+@media (max-width:320px){
+  .e-btn-group .e-btn:first-child{ 
+    margin-left: 10px
+  }
+  .e-btn-group .e-btn{
+    margin-right: 10px;
+  }
+}
+
+/* 按钮 */
+.e-toggle {
+  position: absolute;
+  width: 60px;
+  height: 32px;
+  border-radius: 100px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+  display: block;
+}
+
+.e-toggle input {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  -webkit-appearance: none;
+  z-index: 2;
+  outline: 0
+}
+
+.e-toggle input:checked:before {
+  box-shadow: inset 0 0 0 20px #4bd863;
+}
+
+.e-toggle input:checked:after {
+  right: 2px;
+  left: 31px;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition-property: left, right;
+  transition-delay: .05s, 0s;
+}
+
+.e-toggle input:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 36px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 36px;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition-property: left, right;
+  transition-delay: 0s, .05s;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  z-index: 4
+}
+
+.e-toggle input:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.05);
+  border-radius: 32px;
+  z-index: 3
+}
+
+
+.e-radio{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  display: inline-block;
+  background: #fff;
+}
+.e-radio input {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  width: 16px; height: 16px;
+  border: 0;
+  -webkit-appearance: none;
+  outline: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.e-radio input:checked:after {
+  opacity: 1;
+}
+
+.e-radio input:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 28%; height: 58%;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  left: 6px; top:2px;
+  -webkit-transform:rotate(225deg);
+  opacity: 0;
+}
+
+.e-radio input:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+
