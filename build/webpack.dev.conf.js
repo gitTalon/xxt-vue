@@ -57,6 +57,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
+    
+    new webpack.LoaderOptionsPlugin({ //浏览器加前缀
+      options: {
+          postcss: [require('autoprefixer')({browsers:['last 5 versions']})]
+      }
+  }),
+
     // copy custom static assets
     new CopyWebpackPlugin([
       {

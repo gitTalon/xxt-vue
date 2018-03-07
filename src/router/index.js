@@ -7,7 +7,9 @@ import Identity from '@/pages/identity/Identity'
 import Menu from '@/pages/menu/Menu'
 import StudentsList from '@/pages/menu/StudentsList'
 import SchoolsList from '@/pages/menu/SchoolsList'
-//import RecordsList from '@/pages/menu/RecordsList'
+import Advisory from '@/pages/menu/advisory'
+import SmsRecords from '@/pages/menu/SmsRecords'
+import AdvRecords from '@/pages/menu/AdvRecords'
 
 import Chat from '@/pages/chat/Chat'
 import More from '@/pages/more/More'
@@ -64,11 +66,30 @@ export default new Router({
 	   title:'学校列表' // 标题设置在这里
 	 }
   },
-//   {
-//    path: '/menu/RecordsList',
-//    name: 'RecordsList',
-//    component: RecordsList
-//  },
+  {
+    path: '/menu/SmsRecords',
+    name: 'SmsRecords',
+    component: SmsRecords,
+    meta:{
+     title:'短信记录' // 标题设置在这里
+   }
+  },
+  {
+    path: '/menu/AdvRecords',
+    name: 'AdvRecords',
+    component: AdvRecords,
+    meta:{
+     title:'咨询记录' // 标题设置在这里
+   }
+  },
+  {
+   path: '/menu/Advisory',
+   name: 'Advisory',
+   component: Advisory,
+   meta:{
+    title:'问题咨询' // 标题设置在这里
+  }
+ },
      
      {
       path: '/Chat/chat',

@@ -71,7 +71,7 @@
                		return;
                }else if(_this.phone.length!=11){
                		this.alertShow=true;
-               		this.errorTip='手机号不能为空';
+               		this.errorTip='请输入11位手机号';
                		
                		return;
                }
@@ -117,12 +117,7 @@
 </script>
 
 <style scoped lang="less">
-	.main{
-    .aa{
-        text-align: center
-       
-    }
-}
+
 	.login-wrap{
 		 border-top:4px solid #329EFF;
 		 position: absolute;

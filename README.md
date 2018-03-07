@@ -1,6 +1,6 @@
-# xxt-vue
+# xxt-vue 单页面
 
-> xxt for wap
+> xxt for wap  
 
 ## Build Setup
 

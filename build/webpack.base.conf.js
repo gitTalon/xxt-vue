@@ -46,18 +46,39 @@ module.exports = {
 
 			 test: /\.css$/,
 
-			 loader: "style-loader!css-loader",
+			 loader: 'style-loader!css-loader!postcss-loader' //style-loader!css-loader 解析使用
+                                                               // css postcss-loader后端浏览器优化（加前缀）
+                                                               //要先加载 postcss-loader写在后面
+                                                               //?importLoaders=1 css import 'xxx.css'
       },
       {
-				test: /\.sass$/,
-				
-				loader: "style-loader!css-loader!sass-loader",
+				test: /\.scss$/,
+			// 	use: ExtractTextPlugin.extract({
+      //     use: [{
+      //             loader: 'css-loader'
+      //         },
+      //         {
+      //             loader: 'postcss-loader',
+      //             options: {
+      //                 plugins: [
+      //                     require('autoprefixer')({
+      //                         browsers: ['last 5 versions']
+      //                     })
+      //                 ]
+      //             }
+      //         },
+      //         {
+      //             loader: 'sass-loader'
+      //         }
+      //     ]
+      // })
+			//	loader: "style-loader!css-loader!postcss-loader!sass-loader",//从右往左 先把sass解析成css，再加前缀
 			
 			},
 			{
 				test: /\.less$/,
 				
-				loader: "style-loader!css-loader!less-loader",
+				loader: "style-loader!css-loader!postcss-loader!less-loader",//从右往左 先把less解析成css，再加前缀
 			
 			},
 			

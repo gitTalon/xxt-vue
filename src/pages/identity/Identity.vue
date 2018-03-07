@@ -14,26 +14,85 @@
 				<div class="tab-bar right" :class="{'active':cur==1}" @click="tab(1)"><i class="ico"></i>教师</div>
 				<div class="or"></div>
 			</div>
+			<!--家长-->
 			<div class="tab-cont" v-if="cur==0">
 				
-				<div class="item" v-for="child in childs" @click="showMenu(child.childsId)">
+				<div class="item" :class="{'active':curChild==index}" v-for="(child,index) in childs" @click="parentMenu(index,child.name,child.childsId)">
 					<i class="child"></i>孩子：{{child.name}}<i class="ico"></i>
 				</div>
-				
-				
-				
+
 			</div>
-			
-			<div class="tab-cont" v-else="">
+
+			<!--教师-->
+			<div class="tab-cont" v-else>
 				
-				<div class="item" v-for="ident in idents" @click="showMenu(1)">
+				<div class="item" :class="{'active':curIdent==index}" v-for="(ident,index) in idents" @click="teacherMenu(index,ident.identName,ident.identID)">
 					<i class="tearch"></i>{{ident.identName}}：{{userName}}<i class="ico"></i>
 				</div>
 				
-				
-				
-				
 			</div>
+			<div class="tl-select-mask" v-if="showMask" @click="closeMask"></div>
+			<!--家长菜单-->
+			<section class="menu-list" v-if="curChild!=-1">
+				<p>尊敬的<span class="blue">孩子：</span><span class="blue" v-text="curChildName"></span></p>
+				<p class="tip">欢迎使用电子学生证管理平台</p>
+				<div class="flex">
+					<div class="flex-1">
+						<router-link to="/menu/smsRecords">
+							<img src="../../assets/img/record.png" alt="">
+							<p class="c-999">记录查看</p>
+						</router-link>
+					</div>
+					<div class="flex-1">
+						<router-link  to="/menu/advisory"> 
+							<img src="../../assets/img/doubt.png" alt="">
+							<p class="c-999">问题咨询</p>
+						</router-link>
+					</div>
+					<div class="flex-1">
+						<router-link  to="/Chat/chat">
+							<img src="../../assets/img/idea.png" alt="">
+							<p class="c-999">意见反馈</p>
+						</router-link>
+					</div>
+
+				
+				</div>
+			</section>
+
+			<!--教师菜单-->
+
+			<section class="menu-list" v-if="curIdent!=-1">
+				<p>尊敬的<span class="blue">孩子：</span><<span class="blue" v-text="curIdentName"></span></p>
+				<p class="tip">欢迎使用电子学生证管理平台</p>
+				<div class="flex">
+					<div class="flex-1">
+						<a href="#">
+							<img src="../../assets/img/rygl.png" alt="">
+							<p class="c-999">人员管理</p>
+						</a>
+					</div>
+					<div class="flex-1">
+						<a href="#">
+							<img src="../../assets/img/xxhd.png" alt="">
+							<p class="c-999">家校互动</p>
+						</a>
+					</div>
+					<div class="flex-1">
+						<a href="#">
+							<img src="../../assets/img/jlck.png" alt="">
+							<p class="c-999">记录查看</p>
+						</a>
+					</div>
+
+					<div class="flex-1">
+						<a href="#">
+							<img src="../../assets/img/yjfk.png" alt="">
+							<p class="c-999">意见反馈</p>
+						</a>
+					</div>
+				</div>
+			</section>
 			
 		</section>
 		
@@ -57,8 +116,13 @@ export default {
 	      userName:'',
 	      userId:'',
 	      cur:0,
+		  curChild:-1,
+		  curChildName:'',
+		  curIdent:-1,
+		  curIdentName:'',
 	      childs:[],
-	      idents:[]
+	      idents:[],
+		  showMask:false
 	    }
 	  },
 	  mounted(){
@@ -104,15 +168,27 @@ export default {
 	  	 tab (idx) {
 	  	 	this.cur=idx;
 	  	 },
-	  	 showMenu (idx,role){
-	  	 	
-	  	 }
+	  	 parentMenu (idx,name,cid){
+	  	 	this.curChild=idx;
+			this.showMask=true;
+			this.curChildName=name;
+	  	 },
+		teacherMenu (idx,name,iid){
+			this.curIdent=idx;
+			this.curIdentName=name;
+			this.showMask=true;
+		},
+		closeMask (){
+			this.showMask=false;
+			this.curChild=-1;
+			this.curIdent=-1;
+		}
 	  }
 }
 </script>
 
 <style scoped lang="less">
-
+	.blue{color: #329FFE;}
 	.info-wrap{
 		background: url(../../assets/img/selection_bg.png) 50% no-repeat;
 		background-size: cover;
@@ -205,9 +281,22 @@ export default {
 					height: 1rem;
 				    line-height: 1rem;
 				   padding:0 0.5rem 0 1rem;
+				   position:relative;
 				    &:nth-child(odd){
 				    	 background: #fff;
 				    }
+
+					.ico{
+						width:.4rem;
+						height:.4rem;
+						position: absolute;
+						right: 0.5rem;
+						top: .3rem;
+					}
+					&.active .ico{
+						background: url(../../assets/img/t.png) no-repeat;
+						background-size:100%;
+					}
 				}
 				.child{
 					width: .2rem;
@@ -231,6 +320,41 @@ export default {
 				}
 				
 			}
+
+			.flex{
+				display:flex;
+				.flex-1{
+					display:flex;
+					flex:1;
+						justify-content :center;
+					align-items:center;
+				}
+			}
+			.menu-list{
+				position: fixed;
+				width: 100%;
+				bottom: 1rem;
+				z-index: 100;
+				height: 3rem;
+				padding: .2rem 0;
+				a{
+					display: flex;
+					flex-direction: column;
+					justify-content :center;
+					align-items:center;
+				}
+				p{
+					height: .5rem;
+					line-height: .5rem;
+					&.tip{margin-bottom: .1rem;}
+				}
+				img{
+					width: .9rem;
+					height: .9rem;
+					
+				}
+			}
+
 		
 	}
 	
